@@ -1,0 +1,10 @@
+<div *ngIf="hero"> <!-- Si selectedHero n'est pas undifined -->
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id : </span>{{hero.id}}</div> <!-- Hero déclaré sous forme d'input dans hero-detail.ts -->
+  <div><span>name : </span>{{hero.name}}</div>
+  <div>
+    <label>
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </label>
+  </div>
+</div>
