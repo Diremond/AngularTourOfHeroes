@@ -11,17 +11,7 @@ import { HeroService } from '../hero.service';
 })
 
 export class HeroesComponent implements OnInit {
-  /*hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };*/
-
-  selectedHero: Hero;
   heroes: Hero[];
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
 
   constructor(private heroService: HeroService) { }
 
@@ -30,10 +20,7 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
-    /* Avant on retournait juste le tableau  mock heroes.
-    Désormais, on peut faire des tâches asynchrones (attend le serveur avant de renvoyer la réponse)
-    */
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
-
 }

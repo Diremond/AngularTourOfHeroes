@@ -1,13 +1,15 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes">
     <!-- *ngFor="let hero of heroes" : Pour chaque hero de la liste heroes instanciée dans heroes.component.ts -->
     <!-- [class.selected]="hero === selectedHero" : si le hero courant est égal au hero selectionne dans ce cas,
     on applique le css de la classe selected -->
     <!-- (click)="onSelect(hero)" : event de type click et on exécute la méthode onSelect avec l'argument hero -->
-    <span class="badge">{{hero.id}}</span> {{hero.name}} <!--hero : object courant du foreach-->
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}} <!--hero : object courant du foreach-->
+    </a>
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail> <!-- Permet d'appeler le composant hero-detail
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail> --> <!-- Permet d'appeler le composant hero-detail
 avec l'input selectedHero déclaré dans heroes.ts -->
